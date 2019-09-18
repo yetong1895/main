@@ -5,12 +5,14 @@ import duke.task.TaskList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Parser checks the user input and creates a command corresponding to the user input.
  */
 public class Parser {
 
+    private String split[] = new String[100];
     /**
      * Returns a command corresponding to the user input.
      * <p>
@@ -61,6 +63,15 @@ public class Parser {
                 return addToList(command, inputLine);
         }
         return new ErrorCommand();
+    }
+
+    /**
+     * This method will split the string of user command into individual words
+     * @param inputLine the string of user input
+     */
+    public String[] breakString(String inputLine) {
+        split = inputLine.split(" ");
+        return split;
     }
 
     /**
